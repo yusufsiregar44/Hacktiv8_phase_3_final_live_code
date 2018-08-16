@@ -1,6 +1,5 @@
 export default {
-  financialModellingPrep: {
-    homeData: null,
-    newsData: null
+  game: {
+    currentPosition: 1
   },
 }
