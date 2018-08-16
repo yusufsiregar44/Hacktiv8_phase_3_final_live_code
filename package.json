@@ -1,26 +1,31 @@
 {
-  "name": "Hacktiv8_phase_3_final_live_code",
-  "version": "0.1.0",
+  "name": "bismillah",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "react-native-scripts": "1.14.0",
-    "jest-expo": "~27.0.0",
-    "react-test-renderer": "16.3.1"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "jest"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "clean-start": "watchman watch-del-all && rm -rf node_modules && npm install"
   },
   "dependencies": {
-    "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "axios": "^0.18.0",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
+    "react-native-elements": "^0.19.1",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^2.11.2",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "^5",
+    "jest": "23.5.0",
+    "react-test-renderer": "16.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
