@@ -19,7 +19,7 @@ export default class MyComponent extends Component {
             <View style={styles.player1}>
               <Text>1</Text>
             </View>
-            <View style={styles.player1}>
+            <View style={styles.player2}>
               <Text>2</Text>
             </View>
           </View>
@@ -41,11 +41,13 @@ const styles = StyleSheet.create({
     height: 30,
     margin: 3,
     backgroundColor: 'red',
+    alignItems: 'center'
   },
   player2: {
     width: 30,
     height: 30,
     margin: 3,
-    backgroundColor: 'blue'
+    backgroundColor: 'blue',
+    alignItems: 'center'
   },
 });

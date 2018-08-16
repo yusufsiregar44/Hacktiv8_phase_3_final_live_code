@@ -13,11 +13,11 @@ export default class MyComponent extends Component {
     super()
     this.state = {
       rows: {
-        five: [21, 22, 23, 24, 25],
-        four: [20, 19, 18, 17, 16],
+        one: [21, 22, 23, 24, 25],
+        two: [20, 19, 18, 17, 16],
         three: [11, 12, 13, 14, 15],
-        two: [10, 9, 8, 7, 6],
-        one: [1, 2, 3, 4, 5],
+        four: [10, 9, 8, 7, 6],
+        five: [1, 2, 3, 4, 5],
       }
     }
   }
