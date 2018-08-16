@@ -5,13 +5,18 @@ import {
   View,
   Text,
   StyleSheet,
+  Button,
 } from 'react-native';
 
 export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the HomeScreen component</Text>
+        <Text>Welcome to Ular Tangga!</Text>
+        <Button
+          title="Let's Play!"
+          onPress={() => this.props.navigation.navigate('Game')}
+        />
       </View>
     );
   }
@@ -20,5 +25,7 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
