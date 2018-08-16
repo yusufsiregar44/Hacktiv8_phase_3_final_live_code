@@ -7,26 +7,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import Tile from './Tile'
+import { connect } from 'react-redux'
 
-export default class MyComponent extends Component {
-  constructor() {
-    super()
-    this.state = {
-      rows: {
-        one: [21, 22, 23, 24, 25],
-        two: [20, 19, 18, 17, 16],
-        three: [11, 12, 13, 14, 15],
-        four: [10, 9, 8, 7, 6],
-        five: [1, 2, 3, 4, 5],
-      }
-    }
-  }
-
+class Row extends Component {
   render() {
     return (
       <View style={styles.row}>
         {
-          this.state.rows[this.props.rowNumber].map(function (n, index) {
+          this.props.rows[this.props.rowNumber].map(function (n, index) {
             return (
               <Tile number={n} />
             );
@@ -45,3 +33,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    rows: state.game.rows,
+  };
+}
+
+export default connect(mapStateToProps, null)(Row)

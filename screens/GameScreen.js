@@ -8,26 +8,15 @@ import {
   Button,
 } from 'react-native';
 import Row from './gameScreen/Row'
+import { connect } from 'react-redux'
 
-export default class GameScreen extends Component {
-  constructor() {
-    super()
-    this.state = {
-      rows: {
-        one: [21, 22, 23, 24, 25],
-        two: [20, 19, 18, 17, 16],
-        three: [11, 12, 13, 14, 15],
-        four: [10, 9, 8, 7, 6],
-        five: [1, 2, 3, 4, 5],
-      }
-    }
-  }
+class GameScreen extends Component {
 
   render() {
     return (
       <View style={styles.container}>
         {
-          Object.keys(this.state.rows).map(function (r, index) {
+          Object.keys(this.props.rows).map(function (r, index) {
             return (
               <Row rowNumber={r} />
             )
@@ -56,3 +45,19 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+const mapStateToProps = state => {
+  return {
+    rows: state.game.rows,
+    currentPlayer: state.game.currentPlayer
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    movePlayerOne: () => dispatch(movePlayerOne()),
+    movePlayerTwo: () => dispatch(movePlayerTwo()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen)

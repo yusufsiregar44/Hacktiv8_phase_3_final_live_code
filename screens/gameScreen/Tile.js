@@ -6,24 +6,29 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux'
 
-export default class MyComponent extends Component {
+class Tile extends Component {
 
   render() {
+    console.log(this.props);
     return (
       <View style={styles.tile}>
         <Text>{this.props.number}</Text>
-        {
-          this.props.number === 1 &&
-          <View>
+        <View>
+          {
+            this.props.number === this.props.playerOnePosition &&
             <View style={styles.player1}>
               <Text>1</Text>
             </View>
+          }
+          {
+            this.props.number === this.props.playerTwoPosition &&
             <View style={styles.player2}>
               <Text>2</Text>
             </View>
-          </View>
-        }
+          }
+        </View>
       </View>
     );
   }
@@ -51,3 +56,19 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    playerOnePosition: state.game.playerOnePosition,
+    playerTwoPosition: state.game.playerTwoPosition,
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    movePlayerOne: () => dispatch(movePlayerOne()),
+    movePlayerTwo: () => dispatch(movePlayerTwo()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tile)

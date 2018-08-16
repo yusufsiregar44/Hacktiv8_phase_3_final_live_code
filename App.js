@@ -15,6 +15,8 @@ import HomeScreen from './screens/HomeScreen'
 import GameScreen from './screens/GameScreen'
 import FinishScreen from './screens/FinishScreen'
 
+const store = configureStore()
+
 const RootStack = createSwitchNavigator(
   {
     Home: {
@@ -35,7 +37,9 @@ const RootStack = createSwitchNavigator(
 export default class App extends Component {
   render() {
     return (
-      <RootStack />
+      <Provider store={ store }>
+        <RootStack />
+      </Provider>
     );
   }
 }
